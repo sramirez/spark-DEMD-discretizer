@@ -28,26 +28,24 @@ points (range [0, 1]).
 ## Example: 
 	import org.apache.spark.mllib.feature._
   
-  val train = /** A RDD of LabeledPoint **/
-  val contFeat = (0 until train.first.features.size) /** Sequence of feature indexes to discretize **/
-  val nChr = MLEU.toInt(params.getOrElse("disc-nchrom", "50"), 50)
-  val ngeval = MLEU.toInt(params.getOrElse("disc-geval", "5000"), 5000)
-  val mvfactor = MLEU.toInt(params.getOrElse("disc-mvfactor", "1"), 1)
-  val alpha = MLEU.toDouble(params.getOrElse("disc-alpha", "0.7"), 0.7).toFloat
-  val srate = MLEU.toDouble(params.getOrElse("disc-srate", "0.1"), 0.1).toFloat
-  val vth = MLEU.toInt(params.getOrElse("disc-vth", "100"), 100)
+	val train = /** A RDD of LabeledPoint **/
+  	val contFeat = (0 until train.first.features.size) /** Sequence of feature indexes to discretize **/
+  	val nChr = 50
+  	val ngeval = 5000
+  	val mvfactor = 1
+  	val alpha = .7f
+  	val srate = .1f
+  	val vth = 100
               
-  val discretizer = DEMDdiscretizer.train(train,
-        contFeat,
-        nChr,
-        ngeval,
-        alpha,
-        mvfactor,
-        srate,
-        vth) 
-    discretizer
-  }
-	
+  	val discretizer = DEMDdiscretizer.train(train,
+        	contFeat,
+        	nChr,
+        	ngeval,
+        	alpha,
+        	mvfactor,
+        	srate,
+        	vth) 
+    	
 	val discretized = data.map(i => LabeledPoint(i.label, discretizer.transform(i.features)))
 	discretized.first()
 
