@@ -1,9 +1,9 @@
 A Distributed Evolutionary Multivariate Discretizer (DEMD)
 ==========================================================
 
-The present algorithm is a distributed version of algorithm presented in [1], which is a evolutionary multivariate discretizer (EMD) for data reduction. This new distributed version has entailed a complete redesign of the original approach. In order to alleviate the complexity derived from the original algorithm, the whole evaluation process in this algorithm have 2been fully parallelized. For this purpose, both the set of chromosomes and instances have been split into different partitions and a random cross-evaluation process between them has been performed. 
+Here, a Distributed Evolutionary Multivariate Discretizer (DEMD) for data reduction on Spark is presented. In order to alleviate the complexity derived from the evolutionary process, the whole evalution phase in this algorithm has been fully parallelized. For this purpose, both the set of chromosomes and instances have been split into different partitions and a random cross-evaluation process between them has been performed. 
 
-Despite being different from the sequential approach, this type of evaluation has shown to yield good discretization schemes. To demonstrate the usefulness of this solution, a thorough experimental evaluation has been performed using several huge datasets (up to O(10^7) instances and O(10^4) features).
+Despite the non-deterministic nature of the algorithm, the evalution results has shown to yield good discretization schemes. A thorough experimental evaluation performed using several huge datasets (up to O(10^7) instances and O(10^4) features) has shown the usefulness of our approach.
 
 Spark package: http://spark-packages.org/package/sramirez/spark-DEMD-discretizer
 
@@ -54,8 +54,3 @@ points (range [0, 1]).
 
 - Sergio Ramírez-Gallego (sramirez@decsai.ugr.es) (main contributor and maintainer).
 
-##References
-
-[1] Ramirez-Gallego, S.; Garcia, S.; Benitez, J.M.; Herrera, F., "Multivariate Discretization Based on Evolutionary Cut Points Selection for Classification," in Cybernetics, IEEE Transactions on , vol.PP, no.99, pp.1-1 
-doi: 10.1109/TCYB.2015.2410143
-URL: http://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=7063251&isnumber=6352949
