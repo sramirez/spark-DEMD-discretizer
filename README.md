@@ -1,7 +1,9 @@
 A Distributed Evolutionary Multivariate Discretizer (DEMD)
 ==========================================================
 
-Here, a Distributed Evolutionary Multivariate Discretizer (DEMD) for data reduction on Spark is presented. In order to alleviate the complexity derived from the evolutionary process, the whole evalution phase in this algorithm has been fully parallelized. For this purpose, both the set of chromosomes and instances have been split into different partitions and a random cross-evaluation process between them has been performed. 
+Here, a Distributed Evolutionary Multivariate Discretizer (DEMD) for data reduction on Spark is presented. This evolutionary-based discretizer uses binary chromosome representation and a wrapper fitness function. The algorithm is aimed at optimizing the cut points selection problem by trading-off two factors: simplicity of solutions and its classification accuracy.
+
+In order to alleviate the complexity derived from the evolutionary process, the whole evalution phase has been fully parallelized using Apache Spark. For this purpose, both the set of chromosomes and instances have been split into different partitions and a random cross-evaluation process between them has been performed. 
 
 Despite the non-deterministic nature of the algorithm, the evalution results has shown to yield good discretization schemes. A thorough experimental evaluation performed using several huge datasets (up to O(10^7) instances and O(10^4) features) has shown the usefulness of our approach.
 
